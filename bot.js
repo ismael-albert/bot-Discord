@@ -1,5 +1,6 @@
-const Discord = require("discord.js");
-const client = new Discord.Client();
+const Discord = require("discord.js")
+const jimp =require('jimp')
+const client = new Discord.Client()
 const config = require("./config.json")
 
 
@@ -27,7 +28,7 @@ client.on("message", async message => {
     const args = message.content.slice(config.prefix.length).trim().split(/ +/g);
     const comando = args.shift().toLowerCase();
 
-    //----------------area de comandos--------------
+    //----------------area de comandos-----------------------------------------------------------------------------
 
     if (comando === "ping"){
         const m =await message.channel.send("Ping");
@@ -42,11 +43,9 @@ client.on("message", async message => {
         message.channel.send("https://www.youtube.com")
        
     }
-    //----------------------------------------------
-    if (comando === "cep"){
-        
-    }
-    //----------------------------------------------
+    //---------------------------------------------------------------------------------------------------------
+    
+    //--------------------------------------------------------------------------------------------------------
 });
 
 client.login(config.token);
