@@ -8,8 +8,7 @@ let mask = await jimp.read("./jimp/mascara.png")
 let fundo = await jimp.read("./jimp/fundo.png")
 
 
-Jimp.read('http://www.example.com/path/to/lenna.jpg')
-  .then(image => {
+jimp.read('./controle.png').then(image => {
     // Do stuff with the image.
 
 avatar.resize(130, 130)

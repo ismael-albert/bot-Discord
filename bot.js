@@ -1,7 +1,7 @@
 const Discord = require("discord.js");
 const client = new Discord.Client();
 const config = require("./config.json")
-
+const jimp =require('jimp')
 
 client.on("ready", () => {
   console.log(`bot 7mal foi iniciado, com ${client.users.cache.size} usuários e em ${client.guilds.cache.size} servidores.`);
@@ -18,6 +18,32 @@ client.on("guildDelete", guild => {
     client.user.setActivity(`Serving ${client.guilds.cache.size} servers`);
 });
 
+client.on("guildMemberAdd", async member => {
+
+let canal = client.channels.get("")    
+let fonte = await jimp.loadFont(jimp.FONT_SANS_32_BLACK)
+let mask = await jimp.read("./jimp/mascara.png")
+let fundo = await jimp.read("./jimp/fundo.png")
+
+
+jimp.read(member.user.defaultAvatarURL).then(avatar => {
+    // Do stuff with the image.
+
+avatar.resize(130, 130)
+mask.resize(130, 130)
+avatar.mask(mask)
+fundo.print(fonte, 170, 175, member.user.username)
+fundo.composite(avatar,40, 90).write('beta.png')
+
+  })
+  .catch(err => {
+    // Handle an exception.
+    console.log('erro ao carregar a imagem')
+  });
+
+
+})
+
 
 client.on("message", async message => {
 
@@ -27,7 +53,7 @@ client.on("message", async message => {
     const args = message.content.slice(config.prefix.length).trim().split(/ +/g);
     const comando = args.shift().toLowerCase();
 
-    //----------------area de comandos--------------
+    //----------------area de comandos-----------------------------------------------------------------------------
 
     if (comando === "ping"){
         const m =await message.channel.send("Ping");
@@ -42,11 +68,11 @@ client.on("message", async message => {
         message.channel.send("https://www.youtube.com")
        
     }
-    //----------------------------------------------
+    //---------------------------------------------------------------------------------------------------------
     if (comando === "cep"){
         
     }
-    //----------------------------------------------
+    //--------------------------------------------------------------------------------------------------------
 });
 
 client.login(config.token);
