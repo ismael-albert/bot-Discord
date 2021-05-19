@@ -1,7 +1,7 @@
 {
-  "name": "discordBot",
+  "name": "7mal",
   "version": "1.0.0",
-  "description": "",
+  "description": "Essa é uma versão oficial do bot",
   "main": "bot.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -13,5 +13,14 @@
     "discord.js": "^12.5.3",
     "jimp": "^0.6.0",
     "node": "^16.1.0"
-  }
+  },
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ismael-albert/bot-Discord.git"
+  },
+  "bugs": {
+    "url": "https://github.com/ismael-albert/bot-Discord/issues"
+  },
+  "homepage": "https://github.com/ismael-albert/bot-Discord#readme"
 }
