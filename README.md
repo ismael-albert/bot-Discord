@@ -1,2 +1,2 @@
 # bot-Discord
-erro
+bot criado com a biblioteca v11 do discord.
